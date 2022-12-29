@@ -1,12 +1,15 @@
 from django.shortcuts import render
-
+from .models import Todo
 
 # Create your views here.
 
 
 def say_hello(request):
-    return render(request, 'hello.html')
+
+    print(type(request.user))
+    return render(request, 'hello.html', {'user': str(request.user)})
 
 
 def home(request):
-    return render(request, 'home.html')
+    todos = Todo.objects.all()
+    return render(request, 'home.html', {'todos': todos})

@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello</title>
-</head>
-<body>
-<h3>Hello User</h3>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{%block tilte %}Hello{% endblock %}
+{% block content %}
+    {% if user == 'admin' %}
+    <h1>Hello Ali</h1>
+    {% else %}
+    <h3>Hello {{user|title}}</h3>
+    {% endif %}
+
+
+
+{% endblock %}
